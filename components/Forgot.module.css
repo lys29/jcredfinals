@@ -5,6 +5,7 @@
     background-position: right 0% bottom 0%;
     display: flex;
     height:1039px;
+    color: black;
 }
 
 .left {
@@ -31,12 +32,22 @@
     color: black;
     border: 0px;
     border-bottom: 1px solid black;
-    margin-bottom: 100px;
     width: 397px;
+}
+.container input[type=CPass] {
+    margin-bottom: 50px;
 }
 
 .container input[type=Pass] {
-    margin-bottom: -100px;
+    margin-top: 50px;
+}
+
+.container input[type=Email] {
+   margin-top: 50px; 
+}
+
+.container input[type=checkbox] {
+    margin-bottom: 50px;
 }
 
 .left1 h1{
@@ -58,14 +69,14 @@
 }
 
 .last Button {
-    width: 204px;
+    width: 288px;
     height: 59px;
     border-radius: 25px;
     background-color: #F9BA50;
     color: white;
     font-size: 24px;
-    margin-left: 200px;
-    margin-top: 30px;
+    margin-left: 50px;
+    margin-top: 10px;
     align-items: center;
     display: flex;
 }
@@ -75,4 +86,41 @@
     color: white;
     margin-right: 30px;
     margin-left: 30px;
+}
+
+.spr {
+    display: flex;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.spr input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+.container input [type=CPass] {
+    margin-bottom: -200px;
+}
+
+.spr1 input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: -50px;
+}
+
+.spr1 {
+    display: flex;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.spr1 label {
+    margin-top: -48px;
 }

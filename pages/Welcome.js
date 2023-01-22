@@ -1,11 +1,11 @@
-import Welcome from "../components/Welcome"
+import Main_Dashboard from "../components/Main_Dashboard"
 
 // import { useEffect, useState } from "react";
 
 const Welcomepage = () => {
     return (
       <div>
-        <Welcome/>
+        <Main_Dashboard/>
       </div>
     );
   };

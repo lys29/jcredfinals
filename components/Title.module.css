@@ -5,6 +5,7 @@
     background-position: right 0% bottom 0%;
     display: flex;
     height:1039px;
+    color: black;
 }
 
 .left {
@@ -37,10 +38,17 @@
 
 .container input[type=Pass] {
     margin-bottom: -100px;
+    margin-top: 100px;
+}
+
+.container input[type=Email] {
+    margin-bottom: -100px;
+    margin-top: 100px;
 }
 
 .left1 h1{
     font-size: 40px;
+    margin-bottom: 30px;
 }
 
 .left1 h5 {
@@ -88,14 +96,14 @@
 .last p {
     font-size: 20px;
     color: gray;
-    margin-top: 130px;
+    margin-top: 70px;
     margin-left: 40px;
 }
 
 .last Button {
     color: #F9B64D;
     font-size: 20px;
-    margin-top: 110px;
+    margin-top: 70px;
     text-decoration: underline;
     margin-left: -30px;
 }

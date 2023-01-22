@@ -1,8 +1,8 @@
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
-const port = 3000;
-// const hostname = '127.0.0.1';
+const port = 3080;
+const hostname = 'localhost';
 var bodyParser = require('body-parser');
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
@@ -16,10 +16,10 @@ const {spawn} = require('child_process');
 
 // MYSQL CONNECTION
 var connection = mysql.createConnection({
-    host: "containers-us-west-160.railway.app",
+    host: "localhost",
     user: "root",
-    password: "8FN4s0rhbUSCsP4rT6YH",
-    database: "railway",
+    password: "elai",
+    database: "cpet17finals",
 });
 
 connection.connect(function (err) {
@@ -30,7 +30,7 @@ connection.connect(function (err) {
 // DEFAULT PAGE WITH CREATES
 app.get('/', function (req, res) {
     // CREATE DATABASE IF NOT EXISTING YET
-    connection.query("CREATE DATABASE IF NOT EXISTS JCRED ERRORS PROJECT",
+    connection.query("CREATE DATABASE IF NOT EXISTS jade_project",
         function (err, results) {
             if (err) throw err;
             console.log(req.query);
@@ -111,9 +111,72 @@ app.get("/displaycam", (req, res) => {
 });
 
 
+// SIGNUP  
+// app.post("/signup", (req, res) => {
+//     const {
+//         firstname,
+//         lastname,
+//         phone,
+//         username,
+//         email,
+//         password,
+//         confirmpassword
+//     } = req.body;
+//     connection.query(
+//         "INSERT INTO user_table (firstname, lastname, phone, username, email, password, confirmpassword) VALUES (?,?,?,?,?,?,?)", [firstname, lastname, phone, username, email, password, confirmpassword]),
+//         function (err, results) {
+//             if (err) throw err;
+//             console.log(req.query);
+//             console.log(results);
+//             res.send(results);
+//             console.log("User added!");
+//         }
 
+//     connection.query(
+//         "SELECT * FROM `user_table`",
+//         function (err, results) {
+//             if (err) throw err;
+//             console.log(req.query);
+//             console.log(results);
+//             res.send(results);
+//         })
+
+// });
+
+// LOGIN
+
+// RESET PASSWORD
+
+// DISPLAY TABLE IN DASHBOARD
+
+//DISPLAY IMAGES IN DASHBOARD
+// app.get("/displaycam", (req, res) => {
+//     connection.query(
+//         "SELECT * FROM `motion_table`",
+//         function (err, results,date_time) {
+//             if (err) throw err;
+//             try {
+//                 if (results.length > 0) {
+//                     let base64array = [];
+//                     for (let i = 0; i < results.length; i++) {
+//                         base64array.push({
+//                             data: new Buffer.from(results[i].image).toString("utf8"),
+                            
+//                         });
+//                     }
+//                     res.json(base64array);
+//                     res.send(date_time);
+//                     console.log(results);
+//                 }
+//             }
+//             catch (err) {
+//                 res.json({ message: err });
+//             }
+
+//         })
+// });
 
 // SERVER LISTENER
 app.listen(port, hostname, () => {
-    console.log('Server Active on http://'+ port + "/");
+    console.log('Server Active on http://' + hostname + ":" + port + "/");
 });

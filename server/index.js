@@ -29,27 +29,24 @@ app.get('/', (req, res) => {
 
 //SIGN UP 
 app.post('/register', (req, res) => {
-    const firstname = req.body.firstname;
-    const lastname = req.body.lastname;
-    const phone = req.body.phone;
-    const username = req.body.username;
+    const FullName = req.body.FullName;
     const email = req.body.email;
     const password = req.body.password;
     const confirmpassword = req.body.confirmpassword;
 
-    const query = "INSERT INTO user_table (`firstname`, `lastname`,`phone`, `username`, `email`, `password`,`confirmpassword`) VALUES (?, ?, ?, ?, ? ,? ,?)";
-    const query2 = "SELECT * FROM user_table WHERE username = ?";
+    const query = "INSERT INTO user_table (`FullName`, `email`, `password`,`confirmpassword`) VALUES (?, ?, ?, ?)";
+    const query2 = "SELECT * FROM user_table WHERE email = ?";
     
-    db.query(query2, [username], (err, result) => {
+    db.query(query2, [email], (err, result) => {
         if(err) {throw err;}
         if(result.length > 0) {
-            res.send({message: "Username Already Taken"});
+            res.send({message: "Email Already Taken"});
         }
 
         if(result.length === 0){
             const hashedPassword = bcrypt.hashSync(password, 10)
             const hashedConfirmPassword = bcrypt.hashSync(confirmpassword, 10)
-            db.query(query, [firstname, lastname, phone, username, email, hashedPassword, hashedConfirmPassword], (err, result) => {
+            db.query(query, [FullName, email, hashedPassword, hashedConfirmPassword], (err, result) => {
                 if(err) {throw err;}
                 res.send({message: "User Created!"});
             })
@@ -78,17 +75,17 @@ app.post('/login', (req, res, next) => {
 
 //CAHNGE PASSWORD
 app.post('/change_password', (req, res) => {
-    const username = req.body.username;
+    const FukkName= req.body.FullName;
     const password = req.body.password;
     const confirmpassword = req.body.confirmpassword;
 
-    const query = `UPDATE user_table SET password = ?, confirmpassword = ? WHERE username = ?`;
+    const query = `UPDATE user_table SET password = ?, confirmpassword = ? WHERE email = ?`;
     //const query = "INSERT INTO user_accounts (`username`, `password`) VALUES (?, ?)";
     //const query2 = "SELECT * FROM user_accounts WHERE username = ?";
 
     const hashedPassword = bcrypt.hashSync(password, 10);
     const hashedConfirmPassword = bcrypt.hashSync(confirmpassword, 10);
-    db.query(query, [hashedPassword, hashedConfirmPassword, username], (err, result) => {
+    db.query(query, [hashedPassword, hashedConfirmPassword, email], (err, result) => {
         if(err) {throw err;}
         res.send({message: "Account password updated!"});
     })

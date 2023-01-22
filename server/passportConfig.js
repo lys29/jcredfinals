@@ -4,9 +4,9 @@ const localStratagy = require("passport-local").Strategy;
 
 module.exports = function(passport) {
     passport.use(
-        new localStratagy((username, password, done) => {
-            const query = "SELECT * FROM jade_project.user_table where username = ?";
-            db.query(query, [username], (err, result) => {
+        new localStratagy((email, password, done) => {
+            const query = "SELECT * FROM jade_project.user_table where email = ?";
+            db.query(query, [email], (err, result) => {
                 if(err) {throw err;}
                 if(result.length === 0){
                     return done(null, false)
@@ -34,7 +34,7 @@ module.exports = function(passport) {
             if(err) {throw err;}
             const userInfo = {
                 id: result[0].id,
-                username: result[0].username
+                email: result[0].email
             }
             done(null, userInfo);
         })

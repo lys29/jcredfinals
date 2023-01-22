@@ -1,0 +1,76 @@
+.background{
+    width: 100vw;
+    background: #EEF1FF;
+}
+
+.container{
+    padding: 5vh 10vw 5vh 10vw;
+    
+}
+
+.navigation{
+    position: relative;
+    width: 100vw;
+    height: 12vh;
+    padding: 2vh 5vw 2vh 5vw;
+
+    background: #B1B2FF;
+    justify-content: space-between;
+    display: flex;
+}
+
+.logout_button{
+    width: 12vw;
+    height: 7vh;
+
+    background: #AAC4FF;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-size: 2.5vh;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.logout_button:hover{
+    background: #EEF1FF;
+    color:#AAC4FF;
+}
+
+.date_today{
+    padding-top: 4vh;
+    font-weight: bold;
+}
+
+.image_container{
+    background: #D2DAFF;
+    text-align: center;
+    padding-top: 3vh;
+
+    /*ONE IMAGE*/
+    height: 75vh;
+}
+
+.image{
+    /*height:45vh;*/
+
+    /*ONE IMAGE*/
+    height:65vh;
+}
+
+.dateTime {
+    font-weight: bold;
+}
+
+.sub_images{
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh 5vw 2vh 3vw;
+    display: none;
+}
+
+/*WITH THREE IMAGES*/
+/*.image1, .image2, .image3{
+    height:20vh;
+}*/
+
